@@ -17,6 +17,10 @@ build/
 .env.*.local
 *.env
 
+# Local secrets and state
+_secrets.py
+_sent_papers.json
+
 # API Keys and secrets (backup files)
 *_old.py
 *.backup

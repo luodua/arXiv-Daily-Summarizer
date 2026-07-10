@@ -1,249 +1,215 @@
-# arXiv Daily Paper ​​Summarizer
+# arXiv Daily Paper Summarizer
 
-🤖 Automatically fetch the latest papers from arXiv in specific fields, generate Chinese/English/Bilingual summaries using DeepSeek AI, and deliver them to your inbox daily.
+🤖 Automatically fetch the latest papers from your **specified research direction**, generate structured summaries with type classification and cross-paper analysis, and deliver them to your inbox.
 
-[中文文档](./README_CN.md) | English
+**TL;DR: Type your research interest in plain language, and it finds papers, writes summaries, analyzes trends, and emails you.**
+
+[中文文档](./README.md) | English
 
 ## ✨ Features
 
-- 📚 **Smart Paper Selection**: Fetches latest papers from cs.AI, cs.CV, and cs.CL categories
-- 🎯 **Category Balance**: Ensures representation from each research area
-- 🏆 **Quality Filtering**: Scores papers based on multiple quality indicators
-- 🔄 **Intelligent Deduplication**: Detects and removes similar papers automatically
-- 🤖 **AI Summaries**: Generates high-quality Chinese summaries using DeepSeek V3.2
-- 📧 **Email Delivery**: Beautiful HTML email format with date notices and quality badges
-- ⏰ **Automated Scheduling**: Runs automatically via GitHub Actions
-- 🆓 **Completely Free**: All services within free tier limits
+| Feature | Description |
+|---------|-------------|
+| 🗣️ **Natural Language Search** | Type "CFD + deep learning" and AI auto-translates to arXiv query syntax |
+| 🏗️ **Structured Summaries** | Field → Limitations → Step-by-step Method → ~100-word Innovation |
+| 🏷️ **Paper Type Classification** | Auto-label: 🧪Method / 🔧Application / 📋Survey / 📊Benchmark / 📐Theory |
+| 📊 **Digest Overview** | AI reads all papers, generates a trend analysis: common themes, method evolution, paper relationships |
+| ✅ **Cross-day Dedup** | Never sends the same paper twice |
+| 👍 **Feedback Links** | Click 👍/👎 in emails to train your preferences |
+| 🎯 **Domain-aware Scoring** | Different keyword weights for physics, CS, biology, math |
+| 🔗 **Dual Links** | PDF + arXiv abstract page for every paper |
+| 📧 **Beautiful Emails** | HTML with date badges, type tags, quality scores |
+| ⏰ **Fully Automated** | GitHub Actions daily schedule |
+| 🆓 **100% Free** | ModelScope API + GitHub Actions free tiers |
 
 ## 🚀 Quick Start
 
-### 1. Fork or Clone This Repository
+### 1. Clone & Install
 
 ```bash
 git clone https://github.com/RunRiotComeOn/arXiv-Daily-Summarizer.git
-cd arxiv-daily-summarizer
+cd arXiv-Daily-Summarizer
+pip install -r requirements.txt
 ```
 
-### 2. Configure GitHub Secrets
-
-Navigate to your GitHub repository: **Settings → Secrets and variables → Actions → New repository secret**
-
-Add the following secrets:
-
-| Secret Name | Description | Example |
-|-------------|-------------|---------|
-| `DEEPSEEK_API_KEY` | DeepSeek API key | `ms-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
-| `SENDER_EMAIL` | Sender email address | `your-email@gmail.com` |
-| `SENDER_PASSWORD` | Email app-specific password | `abcd efgh ijkl mnop` |
-| `RECEIVER_EMAIL` | Recipient email address | `receiver@example.com` |
-| `SMTP_SERVER` | SMTP server address (optional) | `smtp.gmail.com` |
-| `SMTP_PORT` | SMTP port (optional) | `587` |
-
-#### 📮 Email Configuration Guide
-
-**Gmail Users:**
-1. Go to [Google Account Security Settings](https://myaccount.google.com/security)
-2. Enable "2-Step Verification"
-3. Generate an "App Password"
-4. Select "Mail" and "Other device"
-5. Use the generated 16-character password as `SENDER_PASSWORD`
-
-**QQ Mail Users:**
-1. Log in to QQ Mail → Settings → Account
-2. Find "POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV Service"
-3. Enable "IMAP/SMTP Service"
-4. Get authorization code as `SENDER_PASSWORD`
-5. Set `SMTP_SERVER` to `smtp.qq.com`
-
-**163 Mail Users:**
-1. Log in to 163 Mail → Settings → POP3/SMTP/IMAP
-2. Enable "IMAP/SMTP Service"
-3. Get authorization code
-4. Set `SMTP_SERVER` to `smtp.163.com`
-
-### 3. Enable GitHub Actions
-
-1. Go to the repository's **Actions** tab
-2. Click "I understand my workflows, go ahead and enable them"
-3. For first-time testing, click "Run workflow" to trigger manually
-
-### 4. Wait for Daily Digest
-
-The system runs automatically at 8:00 AM Beijing Time daily (configurable in `.github/workflows/daily_arxiv.yml`).
-
-## 🛠️ Customization
-
-### Modify Research Areas
-
-Edit the `CATEGORIES` variable in `fetch_papers.py`:
-
-```python
-CATEGORIES = ['cs.AI', 'cs.CV', 'cs.CL']  # Add other categories as needed
-```
-
-Common arXiv categories:
-- `cs.AI` - Artificial Intelligence
-- `cs.CV` - Computer Vision
-- `cs.CL` - Computation and Language (NLP)
-- `cs.LG` - Machine Learning
-- `cs.RO` - Robotics
-- `cs.NE` - Neural and Evolutionary Computing
-
-### Modify Number of Papers
-
-Edit the `MAX_RESULTS` variable in `fetch_papers.py`:
-
-```python
-MAX_RESULTS = 5  # Number of papers to send daily
-```
-
-### Modify Category Balance
-
-Edit the `MIN_PAPERS_PER_CATEGORY` variable:
-
-```python
-MIN_PAPERS_PER_CATEGORY = 1  # Minimum papers per category
-```
-
-### Modify Delivery Time
-
-Edit the cron expression in `.github/workflows/daily_arxiv.yml`:
-
-```yaml
-schedule:
-  - cron: '0 0 * * *'  # UTC time, add 8 hours for Beijing Time
-```
-
-Time reference:
-- `'0 0 * * *'` - 08:00 Beijing Time
-- `'0 1 * * *'` - 09:00 Beijing Time
-- `'0 12 * * *'` - 20:00 Beijing Time
-
-### Adjust Quality Filtering
-
-Modify thresholds in `fetch_papers.py`:
-
-```python
-MIN_ABSTRACT_LENGTH = 100  # Minimum abstract length
-SIMILARITY_THRESHOLD = 0.85  # Duplicate detection threshold (0-1)
-```
-
-## 📁 Project Structure
-
-```
-arxiv-daily-summarizer/
-├── .github/
-│   └── workflows/
-│       └── daily_arxiv.yml    # GitHub Actions workflow config
-├── fetch_papers.py            # Main script with quality filtering
-├── requirements.txt           # Python dependencies
-├── .env.example              # Environment variable template
-├── README.md                 # English documentation
-└── README_CN.md              # Chinese documentation
-```
-
-## 🔧 Local Testing
+### 2. Create `.env` Config
 
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-
-# 2. Set environment variables (Windows PowerShell)
-$env:DEEPSEEK_API_KEY="your-api-key"
-$env:SENDER_EMAIL="your-email@gmail.com"
-$env:SENDER_PASSWORD="your-password"
-$env:RECEIVER_EMAIL="receiver@example.com"
-
-# Or use .env file (Unix/Linux/Mac)
 cp .env.example .env
-# Edit .env with your credentials
-export $(cat .env | xargs)
+```
 
-# 3. Run the script
+Minimum config (everything else has sensible defaults):
+
+```env
+# Natural language research direction (recommended)
+SEARCH_QUERY_NL=CFD and deep learning
+
+# ModelScope API Key (free: https://www.modelscope.cn/)
+DEEPSEEK_API_KEY=***
+
+# Email
+SENDER_EMAIL=***
+SENDER_PASSWORD=***
+RECEIVER_EMAIL=***
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+```
+
+### 3. Run
+
+```bash
 python fetch_papers.py
 ```
 
-## 📊 Quality Scoring System
+No environment variables needed — config auto-loaded from `.env`.
 
-Papers are scored based on multiple factors:
+### 4. Deploy to GitHub Actions (Optional)
 
-1. **Abstract Length**: Longer abstracts indicate more detailed work (+0-2 points)
-2. **Author Count**: Collaborative work gets bonus (+0-1 points)
-3. **Title Keywords**: Important terms like "novel", "efficient", "transformer" (+0.5 points each)
-4. **Recency**: Newer papers receive higher scores (+0.5-3 points)
-5. **Title Quality**: Appropriate length and structure
+1. Push to GitHub
+2. Add the same variables as Secrets in **Settings → Secrets and variables → Actions**
+3. Workflow runs daily at 08:00 Beijing Time (UTC+8)
 
-High-quality papers (score ≥ 5.0) receive a ⭐ badge in the email.
+> ⚠️ `.env` is gitignored. In GitHub Actions, all config comes from GitHub Secrets.
 
-## 🔍 Smart Deduplication
+## 🔑 Research Direction
 
-The system detects similar papers by:
-- Calculating title similarity using sequence matching
-- Removing duplicates with >85% similarity
-- Keeping the higher-quality version when duplicates are found
+### Mode 1: Natural Language (Recommended)
 
-## ⚖️ Category Balance Algorithm
+```env
+SEARCH_QUERY_NL=CFD and deep learning
+```
 
-1. **Guaranteed Minimum**: Each category gets at least 1 paper
-2. **Quality Filling**: Remaining slots filled with highest-scoring papers across all categories
-3. **Final Sort**: Papers sorted by publication date (newest first)
+AI auto-translates to arXiv query, e.g.:
+`cat:physics.flu-dyn AND (all:"deep learning" OR all:"machine learning")`
 
-## 📊 Usage Limits
+More examples:
 
-- **GitHub Actions**: 2000 minutes/month free (this project uses ~2-3 minutes/day)
-- **DeepSeek API**: Free tier provided by ModelScope
-- **Email**: Depends on your email provider's limits
+| Input | AI Translation |
+|-------|---------------|
+| `drug discovery with graph neural networks` | Matches `q-bio.BM` + GNN keywords |
+| `reinforcement learning for robot navigation` | Matches `cs.RO` + RL keywords |
+| `reasoning in large language models` | Matches `cs.CL` + reasoning keywords |
+
+### Mode 2: Expert (arXiv Query Syntax)
+
+```env
+SEARCH_QUERY=cat:physics.flu-dyn AND (all:"machine learning" OR all:"deep learning")
+```
+
+`SEARCH_QUERY` takes priority over `SEARCH_QUERY_NL`.
+
+**Query syntax**: `cat:` for category, `all:` for full-text, `AND`/`OR`, `""` for phrases.
+
+Categories: [arXiv Taxonomy](https://arxiv.org/category_taxonomy)
+
+### Mode 3: Default Categories
+
+Leave both empty for classic search across cs.AI, cs.CV, cs.CL.
+
+## 🤖 Email Layout
+
+```
+📚 Title + Date
+─────────────────
+📊 Digest Overview  ← AI trend analysis across all 5 papers
+─────────────────
+Paper 1: Title [NEW TODAY] [🧪Method] [⭐High Quality]
+  👥 Authors  📅 Date  🏷️ Categories  📊 Score
+  🤖 AI Summary
+    📌 Field
+    📌 Limitations
+    📌 Core Method (Step 1→2→3)
+    📌 Innovation (~100 words)
+  📄 View PDF  🔗 View Abstract
+  👍 Interested  👎 Not Interested
+─────────────────
+Paper 2: ...
+```
+
+## 📮 Email Setup
+
+| Provider | SMTP Server | Port | Notes |
+|----------|------------|------|-------|
+| 163 | `smtp.163.com` | `465` | SSL |
+| QQ | `smtp.qq.com` | `587` | STARTTLS |
+| Gmail | `smtp.gmail.com` | `587` | App password required |
+
+> ⚠️ Always use authorization codes / app passwords, NOT your login password.
+
+## 🛠️ Configuration
+
+| What | Where | Default |
+|------|-------|---------|
+| Papers per day | `MAX_RESULTS` in `fetch_papers.py` | 5 |
+| Schedule time | Cron in `daily_arxiv.yml` | 08:00 Beijing |
+| Summary language | `EMAIL_LANGUAGE` in `.env` | `zh` |
+| AI model | `DEEPSEEK_MODEL` in `fetch_papers.py` | `deepseek-ai/DeepSeek-V3.2` |
+| Dedup threshold | `SIMILARITY_THRESHOLD` | 0.85 |
+
+## 📁 Structure
+
+```
+arxiv-daily-summarizer/
+├── .github/workflows/daily_arxiv.yml
+├── fetch_papers.py
+├── requirements.txt
+├── .env.example
+├── .env                  (gitignored)
+├── _secrets.py           (gitignored)
+├── _sent_papers.json     (gitignored, auto dedup state)
+├── README.md
+└── README_EN.md
+```
 
 ## ❓ FAQ
 
-**Q: Why didn't I receive the email?**
-- Check GitHub Actions logs for errors
-- Verify all Secrets are configured correctly
-- Check your spam folder
-- Confirm SMTP settings for your email provider
+**Q: Papers don't match my direction?**
+Try making your natural language search more specific, or switch to expert mode with `SEARCH_QUERY`.
 
-**Q: How do I modify the email design?**
-- Edit the `generate_email_content()` function in `fetch_papers.py`
-- Modify HTML and CSS code as needed
+**Q: Getting duplicate papers?**
+Check that `_sent_papers.json` exists and is writable.
 
-**Q: Can I send to WeChat or Telegram instead?**
-- Yes! Replace the `send_email()` function with the appropriate API calls
+**Q: Email fails with 163.com?**
+Use port `465` (SSL), not `587`. Make sure you're using the authorization code.
 
-**Q: Why are some papers several days old?**
-- arXiv releases papers on a schedule, not continuously
-- The system shows a date notice when papers are older
-- Adjust `MIN_PAPERS_PER_CATEGORY` if you want stricter recency
+**Q: Want a different AI model?**
+Change `DEEPSEEK_MODEL` in `fetch_papers.py`. Free options on ModelScope: `deepseek-ai/DeepSeek-V3.2` or `deepseek-ai/DeepSeek-V4-Flash`.
 
-**Q: How can I increase paper quality?**
-- Increase `MIN_ABSTRACT_LENGTH` threshold
-- Add more quality keywords in `calculate_paper_quality_score()`
-- Increase the quality score threshold for filtering
+**Q: Don't want the digest overview or type classification?**
+Comment out the corresponding HTML blocks in `generate_email_content()`.
 
 ## 📝 License
 
-MIT License
+MIT
 
 ## 🙏 Acknowledgments
 
-- [arXiv](https://arxiv.org/) - Open access to scholarly articles
-- [DeepSeek](https://www.deepseek.com/) - Powerful AI models
-- [GitHub Actions](https://github.com/features/actions) - Free automation service
+- [arXiv](https://arxiv.org/) — Open-access papers
+- [DeepSeek](https://www.deepseek.com/) / [ModelScope](https://www.modelscope.cn/) — AI & free API
+- [GitHub Actions](https://github.com/features/actions) — Free CI/CD
 
 ---
 
-⭐ If this project helps you, please consider giving it a star!
+⭐ Star this repo!
 
-## 🔄 Updates & Changelog
+## 🔄 Changelog
 
-### v2.0 - Enhanced Quality & Intelligence
-- ✅ Added quality scoring system
-- ✅ Implemented intelligent deduplication
-- ✅ Ensured category balance
-- ✅ Added high-quality paper badges
-- ✅ Improved date notices
-- ✅ Full English documentation
+### v4.0 — Smart Digest
+- ✅ Natural language search (AI translates to arXiv query)
+- ✅ Cross-paper digest overview (trend analysis)
+- ✅ Paper type auto-classification
+- ✅ Cross-day deduplication
+- ✅ Feedback links (👍/👎 in email)
+- ✅ Dual links (PDF + arXiv abstract page)
+- ✅ Domain-aware quality scoring
+- ✅ dotenv auto-load (no manual env vars)
+- ✅ DeepSeek V3.2 model
 
-### v1.0 - Initial Release
-- Basic paper fetching and summarization
-- Email delivery functionality
-- GitHub Actions automation
+### v3.0 — Custom Direction + Structured Summaries
+- ✅ Keyword search, structured summary format, SMTP SSL
+
+### v2.0 — Quality & Intelligence
+- ✅ Scoring, dedup, category balance
+
+### v1.0 — Initial Release
+- Paper fetching, summarization, email delivery
