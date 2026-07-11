@@ -69,6 +69,9 @@ RECEIVER_EMAIL = os.environ.get('RECEIVER_EMAIL', 'yuhj566@163.com')
 SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.163.com')
 SMTP_PORT = int(os.environ.get('SMTP_PORT', '465'))
 
+# Scheduler type marker (set by Task Scheduler: SCHEDULER_TYPE=windows)
+SCHEDULER_TYPE = os.environ.get('SCHEDULER_TYPE', '').strip()
+
 # Quality filtering
 MIN_ABSTRACT_LENGTH = 100
 SIMILARITY_THRESHOLD = 0.85
@@ -717,7 +720,10 @@ body {{ font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #33
 {feedback_html}
 </div>"""
 
-    html += f"""<div class="footer"><p>{txt['footer_auto']}</p><p>{txt['footer_powered']}</p></div></body></html>"""
+    html += f"""<div class="footer"><p>{txt['footer_auto']}</p>"""
+    if SCHEDULER_TYPE:
+        html += f"""<p>🖥️ 发送方式: Windows 计划任务</p>"""
+    html += f"""<p>{txt['footer_powered']}</p></div></body></html>"""
     return html
 
 # ========== Email Sending ==========
@@ -789,6 +795,8 @@ def main():
         html_content = generate_email_content(papers_with_summaries, EMAIL_LANGUAGE)
         today_str = datetime.now().strftime('%Y-%m-%d')
         subject = f"📚 arXiv Daily Paper Digest - {today_str}"
+        if SCHEDULER_TYPE == 'windows':
+            subject += " [Windows 计划任务]"
         if send_email(subject, html_content):
             # Save sent paper IDs for cross-day dedup
             sent = load_sent_papers()

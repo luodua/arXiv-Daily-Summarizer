@@ -2,8 +2,10 @@ name: Daily arXiv Paper
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    # Run at 00:05 UTC daily (08:05 Beijing Time)
+    - cron: '5 0 * * *'
   
+  workflow_dispatch:
 
 jobs:
   fetch-and-send:
@@ -26,9 +28,9 @@ jobs:
       
       - name: 🚀 Run Paper Digest Script
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_API_KEY: *** secrets.DEEPSEEK_API_KEY }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          SENDER_PASSWORD: *** secrets.SENDER_PASSWORD }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
