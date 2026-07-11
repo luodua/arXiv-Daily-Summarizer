@@ -53,8 +53,8 @@ try:
         if hasattr(_secrets, '_ec'):
             os.environ['SENDER_EMAIL'] = _decode_arr(_secrets._ec) + _decode_arr(_secrets._ed)
             os.environ['RECEIVER_EMAIL'] = _decode_arr(_secrets._ec) + _decode_arr(_secrets._ed)
-except Exception as e:
-    print(f'Warning: _secrets.py load failed: {e}')
+except Exception:
+    pass  # _secrets.py is optional, env vars will be used directly
 
 # DeepSeek API
 _raw_key = os.environ.get('DEEPSEEK_API_KEY', '')
@@ -309,10 +309,14 @@ def get_latest_papers():
             results = list(client.results(search))
             print(f"  API returned {len(results)} papers")
 
-            # Cross-day dedup
-            sent_ids = load_sent_papers()
-            new_count = len([r for r in results if r.entry_id not in sent_ids])
-            print(f"  {len(results) - new_count} papers already sent in previous days, {new_count} new")
+            # Cross-day dedup (skip if FORCE_RESEND=1)
+            force_resend = os.environ.get('FORCE_RESEND', '0') == '1'
+            sent_ids = set() if force_resend else load_sent_papers()
+            if force_resend:
+                print(f"  🔁 FORCE_RESEND mode: ignoring previous sends")
+            else:
+                new_count = len([r for r in results if r.entry_id not in sent_ids])
+                print(f"  {len(results) - new_count} papers already sent in previous days, {new_count} new")
 
             all_papers = []
             for result in results:
@@ -335,6 +339,30 @@ def get_latest_papers():
 
             all_papers.sort(key=lambda x: x['quality_score'], reverse=True)
             selected = all_papers[:MAX_RESULTS]
+            
+            # If all papers were blocked by dedup, auto-retry without dedup
+            if not selected:
+                print(f"\n   ⚠️ All {len(results)} papers already sent — auto-retrying without dedup...")
+                all_papers = []
+                for result in results:
+                    paper = {
+                        'title': result.title,
+                        'authors': ', '.join([author.name for author in result.authors]),
+                        'abstract': result.summary if hasattr(result, 'summary') else '',
+                        'pdf_url': result.pdf_url,
+                        'abs_url': result.entry_id.replace('http://', 'https://'),
+                        'published': result.published,
+                        'categories': result.categories,
+                        'entry_id': result.entry_id,
+                        'primary_category': result.categories[0] if result.categories else 'unknown'
+                    }
+                    paper['quality_score'] = calculate_paper_quality_score(paper)
+                    all_papers.append(paper)
+                all_papers.sort(key=lambda x: x['quality_score'], reverse=True)
+                selected = all_papers[:MAX_RESULTS]
+                if selected:
+                    print(f"   🔁 Found {len(selected)} papers (some may be re-sent)")
+            
             print(f"\n✅ Selected {len(selected)} papers")
             for cat, count in Counter(p['primary_category'] for p in selected).items():
                 print(f"   {cat}: {count} papers")
