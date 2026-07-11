@@ -2,11 +2,8 @@ name: Daily arXiv Paper
 
 on:
   schedule:
-    # TEST: every 15 min — change to '5 0 * * *' after confirming it works
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
   
-  # Allow manual workflow trigger
-  workflow_dispatch:
 
 jobs:
   fetch-and-send:
