@@ -292,6 +292,10 @@ def get_latest_papers():
     if not actual_query and SEARCH_QUERY_NL:
         print(f"🧠 Translating natural language: {SEARCH_QUERY_NL}")
         actual_query = translate_nl_to_query(SEARCH_QUERY_NL)
+        # Fallback: if AI translation fails, try direct keyword search
+        if not actual_query:
+            print(f"   ⚠️ AI translation failed, using NL text as raw query")
+            actual_query = SEARCH_QUERY_NL
 
     if actual_query:
         print(f"🔑 Search query: {actual_query}")
