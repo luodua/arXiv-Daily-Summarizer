@@ -76,7 +76,7 @@ python fetch_papers.py
 SEARCH_QUERY_NL=你想研究的方向
 ```
 
-例如输入"计算流体力学方向的深度学习方法"，AI 会自动匹配 arXiv 分类和英文关键词。
+例如输入你的研究方向，AI 会自动匹配 arXiv 分类和英文关键词。
 
 ### 方式二：专家模式
 
