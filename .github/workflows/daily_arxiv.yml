@@ -1,9 +1,9 @@
-name: Daily arXiv Paper Digest
+name: Daily arXiv Paper
 
 on:
   schedule:
-    # Run at 01:50 UTC daily (09:50 Beijing Time) — TEST, change back to '5 0 * * *' after testing
-    - cron: '50 1 * * *'
+    # TEST: every 15 min — change to '5 0 * * *' after confirming it works
+    - cron: '*/15 * * * *'
   
   # Allow manual workflow trigger
   workflow_dispatch:
