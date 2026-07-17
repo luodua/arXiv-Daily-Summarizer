@@ -1,0 +1,320 @@
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   🧠 NL → arXiv query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"machine learning" OR all:"neural network" OR all:"artificial intelligence") AND (all:"computational fluid dynamics" OR all:"CFD")
+🔑 Search query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"machine learning" OR all:"neural network" OR all:"artificial intelligence") AND (all:"computational fluid dynamics" OR all:"CFD")
+  API returned 20 papers
+  0 papers already sent in previous days, 20 new
+  ✓ Generalizable turbulence closures across bluff-body shapes b... (score: 2.1)
+  ✓ CoFINN: Conservation Flux Informed Neural Networks for Physi... (score: 1.8)
+  ✓ Kriging and neural network models for pressure losses across... (score: -1.3)
+  ✓ A Physics-Informed Fourier-Wavelet Transformer for Multiscal... (score: -1.5)
+  ✓ Regularized Machine Learning for System Identification of Sh... (score: -2.0)
+  ✓ Learning Interface Breakup: A Geometry-Conditioned Latent Su... (score: -2.0)
+  ✓ ShipNet: A Geometric Deep Learning Surrogate for Real-Time S... (score: -3.0)
+  ✓ Input-schema identifiability limits in physics-informed surr... (score: -2.7)
+  ✓ Geometry-Aware Anisotropic Boundary Correction for Aerodynam... (score: -1.7)
+  ✓ Machine Learning-Driven Chemical Reactor Network Modeling of... (score: -2.0)
+  ✓ Identifying sensitivity-dominant parameters via active subsp... (score: -2.0)
+  ✓ Neural Operator-Based Surrogate Model for CFD:Helical Coil S... (score: -2.0)
+  ✓ CFDTwin: An open-source GUI and Python toolkit for POD-NN su... (score: -2.7)
+  ✓ Full-field prediction for engineering-scale three-dimensiona... (score: -2.5)
+  ✓ Accelerating Bayesian inverse design in computational fluid ... (score: -3.0)
+  ✓ High-fidelity Modeling of Full-scale Pressurized Water React... (score: -2.0)
+  ✓ Divergence-aware adaptive prediction framework for accelerat... (score: -1.7)
+  ✓ Open Multimodal Datasets and Open-Source Software for Data-D... (score: -2.5)
+  ✓ Physics-Informed Graph Neural Network Surrogates for Turbule... (score: -2.7)
+  ✓ HiLiftAeroML: High-Fidelity Computational Fluid Dynamics Dat... (score: -2.5)
+
+✅ Selected 5 papers
+   physics.flu-dyn: 4 papers
+   cs.CV: 1 papers
+
+📊 Dates: Today=0 Yesterday=0 Older=5
+
+============================================================
+🤖 Generating AI Summaries
+============================================================
+
+[1/5]
+
+🤖 Generalizable turbulence closures across bluff-body shapes by PINN-bas...
+   Generating Chinese summary...
+   ✅ Done
+
+[2/5]
+
+🤖 CoFINN: Conservation Flux Informed Neural Networks for Physics Problem...
+   Generating Chinese summary...
+   ✅ Done
+
+[3/5]
+
+🤖 Kriging and neural network models for pressure losses across perforate...
+   Generating Chinese summary...
+   ✅ Done
+
+[4/5]
+
+🤖 A Physics-Informed Fourier-Wavelet Transformer for Multiscale Computat...
+   Generating Chinese summary...
+   ✅ Done
+
+[5/5]
+
+🤖 Geometry-Aware Anisotropic Boundary Correction for Aerodynamic Simulat...
+   Generating Chinese summary...
+   ✅ Done
+
+============================================================
+📧 Generating Email Content
+============================================================
+
+📧 Sending email to yuhj566@163.com...
+✅ Email sent successfully!
+   💾 Saved 5 paper IDs for cross-day dedup
+
+============================================================
+✅ Done!
+============================================================
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   ⚠️ NL translation failed: Connection error.
+   ⚠️ AI translation failed, using NL text as raw query
+🔑 Search query: 计算流体力学+深度学习
+  ❌ Search failed: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6%2B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025FBE7042D0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。')), falling back to category mode...
+📚 Categories: cs.AI, cs.CV, cs.CL
+
+🔎 Searching category: cs.AI
+  ❌ Error searching cs.AI: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.AI&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025FBE704E10>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+🔎 Searching category: cs.CV
+  ❌ Error searching cs.CV: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CV&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025FBE705950>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+🔎 Searching category: cs.CL
+  ❌ Error searching cs.CL: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CL&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000025FBE69F610>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+⚖️ Ensuring category balance...
+
+✅ Total papers: 0
+
+⚠️ No new papers found (all may have been sent before)
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   🧠 NL → arXiv query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"neural network" OR all:"machine learning")
+🔑 Search query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"neural network" OR all:"machine learning")
+  API returned 20 papers
+  2 papers already sent in previous days, 18 new
+  ✓ A multi-scale feature enhanced graph neural network for flui... (score: 6.0)
+  ✓ Heuristic Learning for Active Flow Control Using Coding Agen... (score: 6.0)
+  ✓ NeuroForge: A Self-Correcting, Geometry-Native Neural CFD En... (score: 2.5)
+  ✓ Entropy-Constrained Machine Learning with Residual Data Augm... (score: 1.7)
+  ✓ Physics informed wavelet Fourier representation for multisca... (score: 2.4)
+  ✓ Developing Machine Learning Models of Subgrid Turbulent Tran... (score: 2.7)
+  ✓ Manifold-adapted radial basis functions for reduced-order mo... (score: 2.4)
+  ✓ Physics-informed neural networks for shock capturing in invi... (score: 2.4)
+  ✓ Cluster-Weighted Training of Deep Surrogate Models for Subgr... (score: 2.1)
+  ✓ BubbleSH: A Dataset of Rising Bubbles with Deformable Interf... (score: 2.1)
+  ✓ Learning Turbulence Closures with Physics-Informed Neural Ne... (score: 2.4)
+  ✓ Estimating Hydrodynamic Coefficients for Floating Offshore S... (score: 2.3)
+  ✓ Resolving the inverse problem in pulse response analysis of ... (score: 1.2)
+  ✓ Generalizable turbulence closures across bluff-body shapes b... (score: 1.5)
+  ✓ Quadrature-Aware Complex-Linear Neural Operator for Boundary... (score: 0.2)
+  ✓ Self-explainable Operator Learning for Discovering Spatial P... (score: -0.7)
+  ✓ Fourier Neural Operators for Rayleigh-Bénard Convection... (score: 0.3)
+  ✓ The PICNN-Assisted Physics-Preserving Scheme for Thermodynam... (score: 0.0)
+
+✅ Selected 5 papers
+   cs.LG: 2 papers
+   astro-ph.SR: 1 papers
+   physics.flu-dyn: 2 papers
+
+📊 Dates: Today=0 Yesterday=2 Older=3
+
+============================================================
+🤖 Generating AI Summaries
+============================================================
+
+[1/5]
+
+🤖 A multi-scale feature enhanced graph neural network for fluid dynamics...
+   Generating Chinese summary...
+   ✅ Done
+
+[2/5]
+
+🤖 Heuristic Learning for Active Flow Control Using Coding Agents...
+   Generating Chinese summary...
+   ✅ Done
+
+[3/5]
+
+🤖 Developing Machine Learning Models of Subgrid Turbulent Transport for ...
+   Generating Chinese summary...
+   ✅ Done
+
+[4/5]
+
+🤖 NeuroForge: A Self-Correcting, Geometry-Native Neural CFD Engine with ...
+   Generating Chinese summary...
+   ✅ Done
+
+[5/5]
+
+🤖 Physics informed wavelet Fourier representation for multiscale fluid d...
+   Generating Chinese summary...
+   ✅ Done
+
+============================================================
+📧 Generating Email Content
+============================================================
+
+📧 Sending email to yuhj566@163.com...
+✅ Email sent successfully!
+   💾 Saved 5 paper IDs for cross-day dedup
+
+============================================================
+✅ Done!
+============================================================
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   ⚠️ NL translation failed: Connection error.
+   ⚠️ AI translation failed, using NL text as raw query
+🔑 Search query: 计算流体力学+深度学习
+  ❌ Search failed: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6%2B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028DFBDD4910>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)")), falling back to category mode...
+📚 Categories: cs.AI, cs.CV, cs.CL
+
+🔎 Searching category: cs.AI
+  ❌ Error searching cs.AI: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.AI&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028DFBDD5950>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+🔎 Searching category: cs.CV
+  ❌ Error searching cs.CV: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CV&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028DFBDD6990>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+🔎 Searching category: cs.CL
+  ❌ Error searching cs.CL: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CL&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000028DFBD6CB90>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+⚖️ Ensuring category balance...
+
+✅ Total papers: 0
+
+⚠️ No new papers found (all may have been sent before)
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   ⚠️ NL translation failed: Connection error.
+   ⚠️ AI translation failed, using NL text as raw query
+🔑 Search query: 计算流体力学+深度学习
+  ❌ Search failed: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6%2B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DE8DC64910>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)")), falling back to category mode...
+📚 Categories: cs.AI, cs.CV, cs.CL
+
+🔎 Searching category: cs.AI
+  ❌ Error searching cs.AI: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.AI&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DE8DC65950>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+🔎 Searching category: cs.CV
+  ❌ Error searching cs.CV: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CV&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DE8DC66990>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+🔎 Searching category: cs.CL
+  ❌ Error searching cs.CL: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CL&id_list=&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DE8DBFCB90>: Failed to resolve 'export.arxiv.org' ([Errno 11001] getaddrinfo failed)"))
+
+⚖️ Ensuring category balance...
+
+✅ Total papers: 0
+
+⚠️ No new papers found (all may have been sent before)
+C:\Users\root\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (7.4.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+============================================================
+🚀 arXiv Daily Paper Digest - Starting
+============================================================
+🔍 Searching for latest papers on arXiv...
+🧠 Translating natural language: 计算流体力学+深度学习
+   🧠 NL → arXiv query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"neural network" OR all:"machine learning" OR all:"artificial intelligence") AND (all:"computational fluid dynamics" OR all:"CFD")
+🔑 Search query: cat:physics.flu-dyn AND (all:"deep learning" OR all:"neural network" OR all:"machine learning" OR all:"artificial intelligence") AND (all:"computational fluid dynamics" OR all:"CFD")
+  API returned 20 papers
+  8 papers already sent in previous days, 12 new
+  ✓ Harnessing Machine Learning for Hybrid Constitutive Modellin... (score: 6.0)
+  ✓ Evaluation of State-of-the-Art Deep Learning Architectures f... (score: 5.0)
+  ✓ Generating synthetic evolution of turbulent flames with an e... (score: 2.8)
+  ✓ Entropy-Constrained Machine Learning with Residual Data Augm... (score: 0.8)
+  ✓ Generalizable turbulence closures across bluff-body shapes b... (score: 0.6)
+  ✓ ShipNet: A Geometric Deep Learning Surrogate for Real-Time S... (score: -3.0)
+  ✓ Input-schema identifiability limits in physics-informed surr... (score: -2.7)
+  ✓ Identifying sensitivity-dominant parameters via active subsp... (score: -2.0)
+  ✓ Neural Operator-Based Surrogate Model for CFD:Helical Coil S... (score: -2.0)
+  ✓ CFDTwin: An open-source GUI and Python toolkit for POD-NN su... (score: -2.7)
+  ✓ Full-field prediction for engineering-scale three-dimensiona... (score: -2.5)
+  ✓ Accelerating Bayesian inverse design in computational fluid ... (score: -3.0)
+
+✅ Selected 5 papers
+   physics.flu-dyn: 5 papers
+
+📊 Dates: Today=0 Yesterday=1 Older=4
+
+============================================================
+🤖 Generating AI Summaries
+============================================================
+
+[1/5]
+
+🤖 Harnessing Machine Learning for Hybrid Constitutive Modelling of Visco...
+   Generating Chinese summary...
+   ✅ Done
+
+[2/5]
+
+🤖 Evaluation of State-of-the-Art Deep Learning Architectures for Aerodyn...
+   Generating Chinese summary...
+   ✅ Done
+
+[3/5]
+
+🤖 Generating synthetic evolution of turbulent flames with an experimenta...
+   Generating Chinese summary...
+   ✅ Done
+
+[4/5]
+
+🤖 Entropy-Constrained Machine Learning with Residual Data Augmentation f...
+   Generating Chinese summary...
+   ✅ Done
+
+[5/5]
+
+🤖 Generalizable turbulence closures across bluff-body shapes by PINN-bas...
+   Generating Chinese summary...
+   ✅ Done
+
+============================================================
+📧 Generating Email Content
+============================================================
+
+📧 Sending email to yuhj566@163.com...
+✅ Email sent successfully!
+   💾 Saved 5 paper IDs for cross-day dedup
+
+============================================================
+✅ Done!
+============================================================
